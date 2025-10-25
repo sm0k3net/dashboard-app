@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EasyDash</title>
+  <meta name="description" content="EasyDash - Personal services dashboard" />
+  <link rel="icon" href="assets/icon.svg" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <noscript>
+    <div class="noscript">EasyDash requires JavaScript to run.</div>
+  </noscript>
+
+  <div id="app" class="app">
+    <aside id="sidebar" class="sidebar">
+      <div class="brand">
+        <div class="logo">ED</div>
+        <div class="brand-text">
+          <h1>EasyDash</h1>
+          <small>Personal dashboard</small>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-header">
+          <span>Groups</span>
+          <button id="btn-add-group" class="btn btn-ghost sm" title="Add group">+</button>
+        </div>
+        <nav id="group-list" class="group-list" aria-label="Groups"></nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <button id="btn-import" class="btn w-100">Import Config</button>
+        <button id="btn-export" class="btn w-100">Export Config</button>
+        <input id="file-input" type="file" accept="application/json" class="hidden" />
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="left">
+          <div class="search">
+            <input id="search-input" type="search" placeholder="Search services or tags..." aria-label="Search services" />
+          </div>
+        </div>
+        <div class="right">
+          <button id="btn-add-service" class="btn">Add Service</button>
+          <button id="btn-theme" class="btn btn-ghost" title="Toggle theme">🌙</button>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="content-head">
+          <h2 id="current-group-title">All Services</h2>
+          <div id="current-group-actions" class="group-actions"></div>
+        </div>
+        <div id="services-grid" class="grid"></div>
+        <div id="empty-state" class="empty hidden">No services match your filters.</div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div id="modal-root" class="modal-root" aria-hidden="true"></div>
+
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
